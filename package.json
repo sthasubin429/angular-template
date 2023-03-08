@@ -7,7 +7,9 @@
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test",
-    "lint": "ng lint && stylelint '**/*.scss'"
+    "lint": "ng lint --max-warnings=0 && stylelint '**/*.scss' --max-warnings=0",
+    "prepare": "husky install",
+    "lint-fix": "stylelint  '**/*.scss' --fix"
   },
   "private": true,
   "dependencies": {
@@ -39,6 +41,7 @@
     "eslint-plugin-import": "^2.27.5",
     "eslint-plugin-jsdoc": "^40.0.1",
     "eslint-plugin-prefer-arrow": "^1.2.3",
+    "husky": "^8.0.3",
     "jasmine-core": "~4.5.0",
     "karma": "~6.4.0",
     "karma-chrome-launcher": "~3.1.0",
