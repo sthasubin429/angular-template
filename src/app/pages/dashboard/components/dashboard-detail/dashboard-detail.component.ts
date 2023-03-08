@@ -1,15 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
-import { Subscription, SubscriptionLike } from 'rxjs';
+import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-detail',
   templateUrl: './dashboard-detail.component.html',
   styleUrls: ['./dashboard-detail.component.scss']
 })
-export class DashboardDetailComponent implements OnInit {
+export class DashboardDetailComponent implements OnInit, OnDestroy {
 
-  public id!: Number;
+  public id!: number;
   private subscription!: SubscriptionLike;
 
   constructor(
