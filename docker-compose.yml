@@ -1,0 +1,14 @@
+version: '3'
+
+services:
+  ui:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: angular-template:latest
+    command: ng serve --host 0.0.0.0
+    volumes:
+      - .:/angular-template
+      - /angular-template/node_modules
+    ports:
+      - '4200:4200'
