@@ -9,7 +9,7 @@
     "test": "ng test",
     "lint": "ng lint --max-warnings=0 && stylelint '**/*.scss' --max-warnings=0",
     "prepare": "husky install",
-    "lint-fix": "stylelint  '**/*.scss' --fix"
+    "lint-fix": "ng lint --fix && stylelint  '**/*.scss' --fix"
   },
   "private": true,
   "dependencies": {

@@ -9,8 +9,8 @@ import { SubscriptionLike } from 'rxjs';
 })
 export class DashboardDetailComponent implements OnInit, OnDestroy {
 
-  public id!: number;
-  private subscription!: SubscriptionLike;
+  public id: number | undefined;
+  private subscription: SubscriptionLike | undefined;
 
   constructor(
     private route: ActivatedRoute
