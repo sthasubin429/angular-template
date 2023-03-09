@@ -31,4 +31,5 @@ exclude_patterns:
   - "**/*_test.go"
   - "**/*.d.ts"
   - "**/*.spec.ts"
-  - "coverage/*"
+  - "coverage/"
+  - ".lintstagedrc.mjs"
