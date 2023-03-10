@@ -26,21 +26,21 @@ export class KeyFormatterService {
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   public convertKeys(o: any, destinationFormat: caseName = caseName.snake): object {
-    let fn: (str: string) => string;
+    let fn: (str: string) => string = this.toSnake;
     if (destinationFormat === caseName.snake) {
       fn = this.toSnake;
     } else if (destinationFormat === caseName.camel) {
       fn = this.toCamel;
     }
     if (this.isObject(o)) {
-      // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      const n: any = {};
+      const formattedObject: {[key: string]: unknown } = {};
 
-      Object.keys(o).forEach((k: string) => {
-        n[fn(k)] = this.convertKeys(o[k], destinationFormat);
-      });
-
-      return n;
+      for (const key in o) {
+        if ({}.hasOwnProperty.call(o, key)) {
+          formattedObject[fn(key)] = this.convertKeys(o[key], destinationFormat);
+        }
+      }
+      return formattedObject;
     } else if (this.isArray(o)) {
       return o.map((i: string) => this.convertKeys(i, destinationFormat));
     }
