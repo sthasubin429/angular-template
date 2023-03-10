@@ -49,3 +49,6 @@ down: # stops and removes project containers
 
 stop: # stops services
 	${dc} stop
+
+build: # builds docker container
+	${dc} build

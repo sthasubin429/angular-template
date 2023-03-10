@@ -1,9 +1,9 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { KeyFormatterInterceptor } from '@core/interceptors/key-formatter.interceptor';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { KeyFormatterInterceptor } from './core/interceptors/key-formatter/key-formatter.interceptor';
 
 @NgModule({
   declarations: [

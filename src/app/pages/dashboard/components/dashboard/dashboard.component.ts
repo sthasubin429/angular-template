@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { MockDataService } from 'src/app/core/http/mock-data/mock-data.service';
+import { MockDataService } from '@core/http/mock-data/mock-data.service';
 
 @Component({
   selector: 'app-dashboard',

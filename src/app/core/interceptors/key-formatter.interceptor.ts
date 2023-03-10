@@ -8,8 +8,8 @@ import {
   HttpErrorResponse
 } from '@angular/common/http';
 import { Observable, catchError, map, throwError } from 'rxjs';
-import { KeyFormatterService } from '../../services/key-formatter/key-formatter.service';
-import { caseName } from '../../enums';
+import { caseName } from '@core/enums';
+import { KeyFormatterService } from '@core/services/utils/key-formatter.service';
 
 @Injectable()
 export class KeyFormatterInterceptor implements HttpInterceptor {
