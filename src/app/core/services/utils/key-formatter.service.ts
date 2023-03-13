@@ -16,42 +16,42 @@ export class KeyFormatterService {
     .map((word: string) => word.toLowerCase())
     .join('_');
 
-  public toTitle = (s: string): string => {
-    if (s) {
-      return s.charAt(0).toUpperCase() + s.slice(1).replace(/([-_][a-z])/gi, ($1: string) => $1.toUpperCase().replace('_', ' '));
+  public toTitle = (str: string): string => {
+    if (str) {
+      return str.charAt(0).toUpperCase() + str.slice(1).replace(/([-_][a-z])/gi, ($1: string) => $1.toUpperCase().replace('_', ' '));
     } else {
-      return s;
+      return str;
     }
   };
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  public convertKeys(o: any, destinationFormat: caseName = caseName.snake): object {
+  public convertKeys(obj: any, destinationFormat: caseName = caseName.snake): object {
     let fn: (str: string) => string = this.toSnake;
     if (destinationFormat === caseName.snake) {
       fn = this.toSnake;
     } else if (destinationFormat === caseName.camel) {
       fn = this.toCamel;
     }
-    if (this.isObject(o)) {
+    if (this.isObject(obj)) {
       const formattedObject: {[key: string]: unknown } = {};
 
-      for (const key in o) {
-        if ({}.hasOwnProperty.call(o, key)) {
-          formattedObject[fn(key)] = this.convertKeys(o[key], destinationFormat);
+      for (const key in obj) {
+        if ({}.hasOwnProperty.call(obj, key)) {
+          formattedObject[fn(key)] = this.convertKeys(obj[key], destinationFormat);
         }
       }
       return formattedObject;
-    } else if (this.isArray(o)) {
-      return o.map((i: string) => this.convertKeys(i, destinationFormat));
+    } else if (this.isArray(obj)) {
+      return obj.map((i: string) => this.convertKeys(i, destinationFormat));
     }
-    return o;
+    return obj;
   }
 
-  private isArray(a: unknown): boolean {
-    return Array.isArray(a);
+  private isArray(arr: unknown): boolean {
+    return Array.isArray(arr);
   }
 
-  private isObject(o: unknown): boolean {
-    return o === Object(o) && !this.isArray(o) && typeof o !== 'function';
+  private isObject(obj: unknown): boolean {
+    return obj === Object(obj) && !this.isArray(obj) && typeof obj !== 'function';
   }
 }
