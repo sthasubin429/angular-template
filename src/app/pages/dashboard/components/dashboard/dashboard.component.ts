@@ -8,11 +8,13 @@ import { MockDataService } from '@core/http/mock-data/mock-data.service';
 })
 export class DashboardComponent implements OnInit {
 
+  noData: string|null = null;
+
   constructor(private mockData: MockDataService) { }
 
   ngOnInit(): void {
     this.mockData.getData().subscribe((data: unknown) => {
-      console.log(data);
+      console.dir(data);
     });
   }
 
