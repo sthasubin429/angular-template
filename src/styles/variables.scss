@@ -1,0 +1,49 @@
+@import "color";
+
+/////////////////////
+//  FONT WEIGHTS   //
+/////////////////////
+$thin: 100;
+$extra-light: 200;
+$normal-light: 300;
+$normal: 400;
+$medium: 500;
+$semi-bold: 600;
+$bold: 700;
+$extra-bold: 800;
+$heavy: 900;
+
+/////////////////////
+//   FONT SIZES    //
+/////////////////////
+$font-size-xs: 12px;
+$font-size-sm: 14px;
+$font-size-b: 16px;
+$font-size-lg: 18px;
+$font-size-xl: 20px;
+$font-size-2xl: 24px;
+$font-size-3xl: 30px;
+$font-size-4xl: 36px;
+$font-size-5xl: 48px;
+$font-size-6xl: 60px;
+$font-size-7xl: 72px;
+$font-size-8xl: 96px;
+$font-size-9xl: 128px;
+
+/////////////////////
+//   Breakpoints    //
+/////////////////////
+$xs: 412px;
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+///////////////////////
+//   Fonts          //
+/////////////////////
+$font-primary: "Noto Sans", sans-serif;
+$font-secondary: "Roboto", sans-serif;
+
+// $font-alt: "Poppins";

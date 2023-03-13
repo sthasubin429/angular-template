@@ -1,0 +1,171 @@
+@import "variables";
+@import "mixins";
+
+/*
+Referenced from::
+https://github.com/tailwindlabs/tailwindcss/blob/master/src/css/preflight.css
+*/
+
+/*
+1. Prevent padding and border from affecting element width. (https://github.com/mozdevs/cssremedy/issues/4)
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+  font-size: 100%;
+}
+
+/*
+1. Use a consistent sensible line-height in all browsers.
+2. Prevent adjustments of font size after orientation changes in iOS.
+3. Use the user's configured font-family by default.
+*/
+html {
+  font-family: $font-primary; /* 3 */
+  line-height: 1.5; /* 1 */
+  text-size-adjust: 100%; /* 2 */
+}
+
+/*
+1. Remove the margin and padding.
+2. Add Generic Text Style
+3. Global Background Color
+4. Inherit line-height from `html` so users can set them as a class directly on the `html` element.
+*/
+body {
+  @include no-margin-padding; /* 1 */
+  @include generic-paragraph; /* 2 */
+
+  background-color: $white; /* 3 */
+  line-height: inherit; /* 4 */
+}
+
+/*
+Remove the default font size and weight for headings.
+*/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+/*
+Add the correct font weight in Edge and Safari.
+*/
+b,
+strong {
+  font-weight: bolder;
+}
+
+/*
+Add the correct font size in all browsers.
+*/
+small {
+  font-size: 80%;
+}
+
+/*
+Removes the default spacing and border for appropriate elements.
+*/
+blockquote,
+dl,
+dd,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+hr,
+figure,
+p,
+pre,
+fieldset,
+legend,
+ol,
+ul,
+menu {
+  @include no-margin-padding;
+}
+
+ol,
+ul,
+menu {
+  list-style: none;
+}
+
+/*
+Set the default cursor for buttons.
+*/
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+/*
+Make sure disabled buttons don't get the pointer cursor.
+*/
+:disabled {
+  cursor: default;
+}
+
+/*
+Reset links with text decoration none.
+*/
+a {
+  color: $primary;
+  text-decoration: none;
+}
+
+/*
+Scroll bar style
+*/
+// *::-webkit-scrollbar {
+//   width: 6px; //width of the entire scrollbar
+// }
+
+// *::-webkit-scrollbar-track {
+//   background: $grey2; //color of the tracking area
+//   border-radius: 4px;
+// }
+
+// *::-webkit-scrollbar-thumb {
+//   background-color: $black3; //color of the scroll thumb
+//   border-radius: 4px;
+// }
+
+/*
+Add global style for header and p tags
+*/
+h1 {
+  @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+}
+
+// h2 {
+//   @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+// }
+
+// h3 {
+//   @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+// }
+
+// h4 {
+//   @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+// }
+
+// h5 {
+//   @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+// }
+
+// h6 {
+//   @include generic-paragraph($text-color, $font-size-4xl, 54px, $medium);
+// }
+
+p {
+  @include generic-paragraph;
+}

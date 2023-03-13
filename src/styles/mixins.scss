@@ -1,0 +1,62 @@
+@import "variables";
+
+@mixin no-padding {
+  padding: 0;
+}
+
+@mixin no-margin {
+  margin: 0;
+}
+
+@mixin no-margin-padding {
+  @include no-margin;
+  @include no-padding;
+}
+
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+@mixin default-font($font-family: $font-primary) {
+  font-family: $font-family;
+}
+
+@mixin generic-paragraph(
+  $color: $text-color,
+  $size: $font-size-b,
+  $line-ht: $font-size-2xl,
+  $weight: $normal,
+  $font-family: $font-primary
+) {
+  @include default-font($font-family);
+
+  color: $color;
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $line-ht;
+}
+
+@mixin remove-arrows-number-input {
+  input {
+    // Chrome, Safari, Edge, Opera
+    &::-webkit-outer-spin-button,
+    &::-webkit-inner-spin-button {
+      appearance: none;
+      margin: 0;
+    }
+
+    // Firefox
+    &[type="number"] {
+      appearance: textfield;
+    }
+  }
+}
+
+@mixin device($breakpoint: $md) {
+  @media only screen and (min-width: $breakpoint) {
+    @content;
+  }
+}
