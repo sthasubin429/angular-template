@@ -13,8 +13,7 @@ export class DashboardComponent implements OnInit {
 
   public noData: string|null = null;
   public data: mockData[]|null = null;
-
-  stateKey: StateKey<mockData[]> = makeStateKey<mockData[]>('mock-data-state');
+  public stateKey: StateKey<mockData[]> = makeStateKey<mockData[]>('mock-data-state');
 
   constructor(private mock: MockDataService, @Inject(PLATFORM_ID) private platformId: object, private transferState: TransferState) { }
 
