@@ -13,7 +13,7 @@ export class DashboardComponent implements OnInit {
 
   public noData: string|null = null;
   public data: mockData[]|null = null;
-  public stateKey: StateKey<mockData[]> = makeStateKey<mockData[]>('mock-data-state');
+  private stateKey: StateKey<mockData[]> = makeStateKey<mockData[]>('mock-data-state');
 
   constructor(private mock: MockDataService, @Inject(PLATFORM_ID) private platformId: object, private transferState: TransferState) { }
 
@@ -26,6 +26,7 @@ export class DashboardComponent implements OnInit {
     else {
       this.mock.getData().subscribe((data: mockData[]) => {
         console.dir(data);
+        this.data = data;
         if (isPlatformServer(this.platformId)) {
           this.transferState.set(this.stateKey, data);
         }
