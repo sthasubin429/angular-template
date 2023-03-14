@@ -33,18 +33,23 @@ export class KeyFormatterService {
       fn = this.toCamel;
     }
     if (this.isObject(obj)) {
-      const formattedObject: {[key: string]: unknown } = {};
-
-      for (const key in obj) {
-        if ({}.hasOwnProperty.call(obj, key)) {
-          formattedObject[fn(key)] = this.convertKeys(obj[key], destinationFormat);
-        }
-      }
-      return formattedObject;
+      return this.formatObject(obj, fn, destinationFormat);
     } else if (this.isArray(obj)) {
       return obj.map((i: string) => this.convertKeys(i, destinationFormat));
     }
     return obj;
+  }
+
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
+  private formatObject(obj: any, fn: (str: string) => string , destinationFormat: caseName): object {
+    const formattedObject: {[key: string]: unknown } = {};
+
+    for (const key in obj) {
+      if ({}.hasOwnProperty.call(obj, key)) {
+        formattedObject[fn(key)] = this.convertKeys(obj[key], destinationFormat);
+      }
+    }
+    return formattedObject;
   }
 
   private isArray(arr: unknown): boolean {
