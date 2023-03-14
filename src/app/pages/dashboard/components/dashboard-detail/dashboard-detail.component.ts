@@ -1,5 +1,7 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
+import { MockDataService } from '@core/http/mock-data/mock-data.service';
+import { mockData } from '@core/interfaces';
 import { SubscriptionLike } from 'rxjs';
 
 @Component({
@@ -9,17 +11,20 @@ import { SubscriptionLike } from 'rxjs';
 })
 export class DashboardDetailComponent implements OnInit, OnDestroy {
 
-  public id: number | undefined;
+  public id: number = 0;
+  public data: mockData | undefined;
   private subscription: SubscriptionLike | undefined;
 
   constructor(
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private mock: MockDataService
   ) { }
 
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params: Params) => {
       this.id = parseInt(params['id']);
+      this.getMockData(params['id']);
     });
   }
 
@@ -27,6 +32,12 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
     if (this.subscription) {
       this.subscription.unsubscribe();
     }
+  }
+
+  private getMockData(id: string): void {
+    this.mock.getDetail(id).subscribe((data: mockData) => {
+      this.data = data;
+    });
   }
 
 }

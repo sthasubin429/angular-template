@@ -1,2 +1,11 @@
 <p>dashboard-detail works!</p>
-<p>ID: {{ this.id }}</p>
+<p>ID: {{ id }}</p>
+
+<div>
+  <p>{{ data?.id | noData }}</p>
+  <p>{{ data?.name| noData }}</p>
+  <p>{{ data?.email | noData }}</p>
+  <p>{{ data?.cityName| noData }}</p>
+  <p>{{ data?.dob | noData }}</p>
+  <p>{{ data?.createdAt| noData }}</p>
+</div>

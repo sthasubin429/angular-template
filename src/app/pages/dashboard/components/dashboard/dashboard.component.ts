@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MockDataService } from '@core/http/mock-data/mock-data.service';
+import { mockData } from '@core/interfaces';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,13 +9,15 @@ import { MockDataService } from '@core/http/mock-data/mock-data.service';
 })
 export class DashboardComponent implements OnInit {
 
-  noData: string|null = null;
+  public noData: string|null = null;
+  public data: mockData[]|null = null;
 
-  constructor(private mockData: MockDataService) { }
+  constructor(private mock: MockDataService) { }
 
   ngOnInit(): void {
-    this.mockData.getData().subscribe((data: unknown) => {
+    this.mock.getData().subscribe((data: mockData[]) => {
       console.dir(data);
+      this.data = data;
     });
   }
 
