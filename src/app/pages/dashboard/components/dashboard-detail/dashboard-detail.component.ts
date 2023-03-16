@@ -2,8 +2,10 @@ import { isPlatformServer } from '@angular/common';
 import { Component, Inject, OnDestroy, OnInit, PLATFORM_ID } from '@angular/core';
 import { StateKey, TransferState, makeStateKey } from '@angular/platform-browser';
 import { ActivatedRoute, Params } from '@angular/router';
+import { defaultMetaTag } from '@core/constants';
 import { MockDataService } from '@core/http/mock-data/mock-data.service';
 import { mockData } from '@core/interfaces';
+import { SeoService } from '@core/services/seo/seo.service';
 import { SubscriptionLike } from 'rxjs';
 
 @Component({
@@ -20,10 +22,11 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
 
 
   constructor(
+    @Inject(PLATFORM_ID) private platformId: object,
     private route: ActivatedRoute,
     private mock: MockDataService,
-    @Inject(PLATFORM_ID) private platformId: object,
-    private transferState: TransferState
+    private transferState: TransferState,
+    private seoService: SeoService
   ) { }
 
 
@@ -52,9 +55,18 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
     this.mock.getDetail(id).subscribe((data: mockData) => {
       console.dir(data);
       this.data = data;
+      this.updateMetaTags(data);
       if (isPlatformServer(this.platformId)) {
         this.transferState.set(this.stateKey, data);
       }
+    });
+  }
+
+  private updateMetaTags(data: mockData): void {
+    this.seoService.setTags({
+      ...defaultMetaTag,
+      title: data.name,
+      description: data.cityName
     });
   }
 

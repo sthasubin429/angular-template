@@ -3,6 +3,7 @@ import { Component, Inject, OnInit, PLATFORM_ID } from '@angular/core';
 import { TransferState, makeStateKey, StateKey } from '@angular/platform-browser';
 import { MockDataService } from '@core/http/mock-data/mock-data.service';
 import { mockData } from '@core/interfaces';
+import { SeoService } from '@core/services/seo/seo.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -15,7 +16,12 @@ export class DashboardComponent implements OnInit {
   public data: mockData[]|null = null;
   private stateKey: StateKey<mockData[]> = makeStateKey<mockData[]>('mock-data-state');
 
-  constructor(private mock: MockDataService, @Inject(PLATFORM_ID) private platformId: object, private transferState: TransferState) { }
+  constructor(
+    private mock: MockDataService,
+    @Inject(PLATFORM_ID) private platformId: object,
+    private transferState: TransferState,
+    private seoService: SeoService )
+  { }
 
   ngOnInit(): void {
     if (this.transferState.hasKey(this.stateKey)) {
@@ -27,6 +33,7 @@ export class DashboardComponent implements OnInit {
       this.mock.getData().subscribe((data: mockData[]) => {
         console.dir(data);
         this.data = data;
+        this.seoService.setTags();
         if (isPlatformServer(this.platformId)) {
           this.transferState.set(this.stateKey, data);
         }
