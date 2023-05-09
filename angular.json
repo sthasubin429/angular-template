@@ -26,7 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "stylePreprocessorOptions": {
-              "includePaths": ["src/styles/"]
+              "includePaths": ["src/styles"]
             },
             "scripts": []
           },
@@ -85,7 +85,11 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": ["src/styles.scss"],
             "include": ["**/*.spec.ts"],
-            "scripts": []
+            "scripts": [],
+            "stylePreprocessorOptions": {
+              "includePaths": ["src/styles"]
+            },
+            "karmaConfig": "karma.conf.js"
           }
         },
         "lint": {
