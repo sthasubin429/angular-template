@@ -16,7 +16,7 @@ serve: # Serves the app
 	${dc} up
 
 test: # Runs unit test of the project
-	npm run test -- --watch=false
+	npm run test --watch=false
 
 refresh: # Rebuilds the project and serves the app
 	rm -rf node_modules
@@ -29,10 +29,10 @@ pre-commit: # Fixes lint issues and runs pre-commit commands
 	npm run lint-fix
 	npm run lint
 	codeclimate analyze
-	npm run test -- --watch=false
+	npm run test --watch=false
 
 test-watch: # Watches for changes when testing
-	npm run test -- --watch=true
+	npm run test --watch=true
 
 lint: # Runs lint on the project
 	npm run lint
