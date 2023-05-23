@@ -1,8 +1,5 @@
 import { TestBed } from '@angular/core/testing';
-import {
-  HttpClientTestingModule,
-  HttpTestingController,
-} from '@angular/common/http/testing';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { MockDataService } from './mock-data.service';
 import { mockData } from '@core/interfaces';
 
@@ -48,9 +45,7 @@ describe('MockDataService', () => {
       expect(data).toEqual(mockData);
     });
 
-    const req = httpMock.expectOne(
-      'https://613715dc8700c50017ef57b0.mockapi.io/api/users'
-    );
+    const req = httpMock.expectOne('https://613715dc8700c50017ef57b0.mockapi.io/api/users');
     expect(req.request.method).toBe('GET');
     req.flush(mockData);
   });
@@ -74,9 +69,7 @@ describe('MockDataService', () => {
       expect(detail).toEqual(mockDetail);
     });
 
-    const req = httpMock.expectOne(
-      `https://613715dc8700c50017ef57b0.mockapi.io/api/users/${userId}`
-    );
+    const req = httpMock.expectOne(`https://613715dc8700c50017ef57b0.mockapi.io/api/users/${userId}`);
     expect(req.request.method).toBe('GET');
     req.flush(mockDetail);
   });

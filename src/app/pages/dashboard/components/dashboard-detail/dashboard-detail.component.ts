@@ -7,19 +7,14 @@ import { SubscriptionLike } from 'rxjs';
 @Component({
   selector: 'app-dashboard-detail',
   templateUrl: './dashboard-detail.component.html',
-  styleUrls: ['./dashboard-detail.component.scss']
+  styleUrls: ['./dashboard-detail.component.scss'],
 })
 export class DashboardDetailComponent implements OnInit, OnDestroy {
-
   public id: number = 0;
   public data: mockData | undefined;
   private subscription: SubscriptionLike | undefined;
 
-  constructor(
-    private route: ActivatedRoute,
-    private mock: MockDataService
-  ) { }
-
+  constructor(private route: ActivatedRoute, private mock: MockDataService) {}
 
   ngOnInit(): void {
     this.subscription = this.route.params.subscribe((params: Params) => {
@@ -39,5 +34,4 @@ export class DashboardDetailComponent implements OnInit, OnDestroy {
       this.data = data;
     });
   }
-
 }

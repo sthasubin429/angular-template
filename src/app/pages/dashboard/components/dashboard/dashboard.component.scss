@@ -1,5 +1,5 @@
 /* Dashboard Component Stye */
-@import "mixins";
+@import 'mixins';
 
 .test {
   @include remove-arrows-number-input;

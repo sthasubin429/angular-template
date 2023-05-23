@@ -4,11 +4,10 @@ import { mockData } from '@core/interfaces';
 import { Observable } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class MockDataService {
-
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
   getData(): Observable<mockData[]> {
     return this.http.get<mockData[]>('https://613715dc8700c50017ef57b0.mockapi.io/api/users');

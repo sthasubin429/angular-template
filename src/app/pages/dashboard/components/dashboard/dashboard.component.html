@@ -4,7 +4,7 @@
 <p>{{ noData | noData }}</p>
 
 <!-- Pipe with Arguments -->
-<p>{{ noData | noData : "-" }}</p>
+<p>{{ noData | noData : '-' }}</p>
 
 <div *ngFor="let user of data">
   <a [routerLink]="['detail', user.id]">Name :{{ user.name }}</a>

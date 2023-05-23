@@ -10,13 +10,13 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        component: TestComponent
-      }
-    ]
-  }
+        component: TestComponent,
+      },
+    ],
+  },
 ];
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class TestRoutingModule { }
+export class TestRoutingModule {}

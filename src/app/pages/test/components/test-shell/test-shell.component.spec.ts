@@ -9,12 +9,9 @@ describe('TestShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [
-        RouterTestingModule
-      ],
-      declarations: [ TestShellComponent ]
-    })
-    .compileComponents();
+      imports: [RouterTestingModule],
+      declarations: [TestShellComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(TestShellComponent);
     component = fixture.componentInstance;

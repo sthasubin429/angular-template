@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { NoDataPipe } from './no-data/no-data.pipe';
 
 @NgModule({
-  declarations: [
-    NoDataPipe
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    NoDataPipe
-  ]
+  declarations: [NoDataPipe],
+  imports: [CommonModule],
+  exports: [NoDataPipe],
 })
-export class PipesModule { }
+export class PipesModule {}

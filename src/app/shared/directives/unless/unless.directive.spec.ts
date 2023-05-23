@@ -6,7 +6,7 @@ import { UnlessDirective } from './unless.directive';
     <ng-container *appUnless="condition">
       <div>UnlessDirective</div>
     </ng-container>
-  `
+  `,
 })
 class TestComponent {
   condition = false;
@@ -18,9 +18,8 @@ describe('UnlessDirective', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ TestComponent, UnlessDirective ]
-    })
-    .compileComponents();
+      declarations: [TestComponent, UnlessDirective],
+    }).compileComponents();
   });
 
   beforeEach(() => {
@@ -43,4 +42,3 @@ describe('UnlessDirective', () => {
     expect(fixture.nativeElement.innerHTML).not.toContain('UnlessDirective');
   });
 });
-

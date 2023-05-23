@@ -2,19 +2,19 @@ import { Injectable } from '@angular/core';
 import { caseName } from '@core/enums';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class KeyFormatterService {
-
   // to convert the snake case object key to camel case
   public toCamel = (str: string): string => str.replace(/([-_][a-z])/gi, ($1: string): string => $1.toUpperCase().replace('_', ''));
 
   // to convert the camel case object key to snake case
-  public toSnake = (str: string): string => str
-    .replace(/\W+/g, ' ')
-    .split(/ |\B(?=[A-Z])/)
-    .map((word: string) => word.toLowerCase())
-    .join('_');
+  public toSnake = (str: string): string =>
+    str
+      .replace(/\W+/g, ' ')
+      .split(/ |\B(?=[A-Z])/)
+      .map((word: string) => word.toLowerCase())
+      .join('_');
 
   public toTitle = (str: string): string => {
     if (str) {
@@ -41,8 +41,8 @@ export class KeyFormatterService {
   }
 
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  private formatObject(obj: any, fn: (str: string) => string , destinationFormat: caseName): object {
-    const formattedObject: {[key: string]: unknown } = {};
+  private formatObject(obj: any, fn: (str: string) => string, destinationFormat: caseName): object {
+    const formattedObject: { [key: string]: unknown } = {};
 
     for (const key in obj) {
       if ({}.hasOwnProperty.call(obj, key)) {

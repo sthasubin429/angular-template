@@ -3,14 +3,8 @@ import { CommonModule } from '@angular/common';
 import { UnlessDirective } from './unless/unless.directive';
 
 @NgModule({
-  declarations: [
-    UnlessDirective
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    UnlessDirective
-  ]
+  declarations: [UnlessDirective],
+  imports: [CommonModule],
+  exports: [UnlessDirective],
 })
-export class DirectivesModule { }
+export class DirectivesModule {}
