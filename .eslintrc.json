@@ -50,7 +50,13 @@
             "allow": ["constructors"]
           }
         ],
-        "@typescript-eslint/quotes": ["error", "single", { "allowTemplateLiterals": true }],
+        "@typescript-eslint/quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
         "@typescript-eslint/no-inferrable-types": "off",
         "@typescript-eslint/explicit-function-return-type": "warn",
         "@typescript-eslint/member-ordering": "warn",
