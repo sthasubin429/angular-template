@@ -1,4 +1,4 @@
-version: "2"
+version: '2'
 checks:
   similar-code:
     config:
@@ -6,30 +6,31 @@ checks:
 plugins:
   stylelint:
     enabled: true
-    channel: "stylelint-14-15-0"
+    channel: 'stylelint-14-15-0'
     exclude_patterns:
-    - "**/*.html"
-    - "**/*.ts"
+      - '**/*.html'
+      - '**/*.ts'
     config:
       config: .stylelintrc.json
   eslint:
     enabled: true
-    channel: "eslint-8"
+    channel: 'eslint-8'
     config:
       config: .eslintrc.json
 exclude_patterns:
-  - "config/"
-  - "db/"
-  - "dist/"
-  - "features/"
-  - "**/node_modules/"
-  - "script/"
-  - "**/test/"
-  - "**/tests/"
-  - "Tests/"
-  - "**/vendor/"
-  - "**/*_test.go"
-  - "**/*.d.ts"
-  - "**/*.spec.ts"
-  - "coverage/"
-  - ".lintstagedrc.mjs"
+  - 'config/'
+  - 'db/'
+  - 'dist/'
+  - 'features/'
+  - '**/node_modules/'
+  - 'script/'
+  - '**/test/'
+  - '**/tests/'
+  - 'Tests/'
+  - '**/vendor/'
+  - '**/*_test.go'
+  - '**/*.d.ts'
+  - '**/*.spec.ts'
+  - 'coverage/'
+  - '.lintstagedrc.mjs'
+  - 'karma.conf.js'
