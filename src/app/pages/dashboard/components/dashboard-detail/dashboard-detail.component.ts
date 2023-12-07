@@ -1,13 +1,17 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute, Params } from '@angular/router';
 import { MockDataService } from '@core/http/mock-data/mock-data.service';
 import { mockData } from '@core/interfaces';
+import { PipesModule } from '@shared/pipes/pipes.module';
 import { SubscriptionLike } from 'rxjs';
 
 @Component({
   selector: 'app-dashboard-detail',
+  standalone: true,
+  imports: [CommonModule, PipesModule],
   templateUrl: './dashboard-detail.component.html',
-  styleUrls: ['./dashboard-detail.component.scss'],
+  styleUrl: './dashboard-detail.component.scss',
 })
 export class DashboardDetailComponent implements OnInit, OnDestroy {
   public id: number = 0;

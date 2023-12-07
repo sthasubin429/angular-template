@@ -1,6 +1,6 @@
 {
   "root": true,
-  "ignorePatterns": ["projects/**/*", "**/*.stub.ts", "**/*.spec.ts", "**/*-routing.module.ts", "src/main.ts"],
+  "ignorePatterns": ["projects/**/*", "**/*.stub.ts", "**/*.spec.ts", "**/*.routes.ts", "src/main.ts", "server.ts", "src/main.server.ts"],
   "overrides": [
     {
       "files": ["*.ts"],
