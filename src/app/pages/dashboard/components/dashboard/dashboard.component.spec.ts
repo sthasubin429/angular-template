@@ -13,8 +13,7 @@ describe('DashboardComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, PipesModule, DirectivesModule],
-      declarations: [DashboardComponent],
+      imports: [HttpClientTestingModule, PipesModule, DirectivesModule, DashboardComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardComponent);

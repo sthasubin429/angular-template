@@ -1,10 +1,9 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { DashboardShellComponent } from './components/dashboard-shell/dashboard-shell.component';
 import { DashboardDetailComponent } from './components/dashboard-detail/dashboard-detail.component';
+import { DashboardShellComponent } from './components/dashboard-shell/dashboard-shell.component';
 
-const routes: Routes = [
+export const dashboardRoutes: Routes = [
   {
     path: '',
     component: DashboardShellComponent,
@@ -19,13 +18,8 @@ const routes: Routes = [
       },
       {
         path: 'details',
-        loadChildren: () => import('./detail/detail.module').then((mod) => mod.DetailModule),
+        loadChildren: () => import('./detail/detail.routes').then((route) => route.dashboardDetailRoutes),
       },
     ],
   },
 ];
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class DashboardRoutingModule {}

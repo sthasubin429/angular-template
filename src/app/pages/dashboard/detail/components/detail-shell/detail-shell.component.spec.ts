@@ -1,7 +1,6 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DetailShellComponent } from './detail-shell.component';
-import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DetailShellComponent', () => {
   let component: DetailShellComponent;
@@ -9,8 +8,7 @@ describe('DetailShellComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [RouterTestingModule],
-      declarations: [DetailShellComponent],
+      imports: [DetailShellComponent],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DetailShellComponent);

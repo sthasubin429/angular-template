@@ -1,11 +1,11 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { DashboardDetailComponent } from './dashboard-detail.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { MockDataService } from '@core/http/mock-data/mock-data.service';
 import { ActivatedRoute } from '@angular/router';
-import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { PipesModule } from '@shared/pipes/pipes.module';
+import { RouterTestingModule } from '@angular/router/testing';
 
 describe('DashboardDetailComponent', () => {
   let component: DashboardDetailComponent;
@@ -15,8 +15,7 @@ describe('DashboardDetailComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [HttpClientTestingModule, RouterTestingModule, PipesModule],
-      declarations: [DashboardDetailComponent],
+      imports: [DashboardDetailComponent, HttpClientTestingModule, RouterTestingModule, PipesModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(DashboardDetailComponent);
