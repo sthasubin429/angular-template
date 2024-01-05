@@ -12,6 +12,9 @@ const removeIgnoredFiles = async (files) => {
 }
 
 export default {
+  "*.{ts,tsx,js,jsx,scss}": [
+    "npx prettier --config .prettierrc --write"
+  ],
   '**/*.{ts,tsx,js,jsx}': async (files) => {
     const filesToLint = await removeIgnoredFiles(files)
     return [`eslint --fix ${filesToLint}`, `git add ${filesToLint}`, `eslint --max-warnings=0 ${filesToLint}`]
